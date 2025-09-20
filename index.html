@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тренды инфографики 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+        }
+
+        /* Заголовок поста */
+        .header {
+            background: linear-gradient(135deg, #ff6b6b, #ff8e53, #ff6b9d);
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .main-title {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: rgba(255,255,255,0.9);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Сетка трендов */
+        .trends-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            padding: 40px 20px;
+            background: #f8f9fa;
+        }
+
+        /* Карточка тренда */
+        .trend-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .trend-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .trend-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+            background-size: 300% 100%;
+            animation: gradient 3s ease infinite;
+        }
+
+        .trend-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .trend-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .trend-description {
+            color: #7f8c8d;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .trend-stats {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        /* Специальные стили для каждого тренда */
+        .minimalism { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .animation { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        .three-d { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        .neomorphism { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }.data-viz { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); }
+        .gradients { background: linear-gradient(135deg, #fad0c4 0%, #ffd1ff 100%); }
+        .interactive { background: linear-gradient(135deg, #ff8a80 0%, #ea80fc 100%); }
+        .maximalism { background: linear-gradient(135deg, #ffb347 0%, #ffcc33 100%); }
+        .eco { background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%); }
+
+        /* Статистика */
+        .stats-section {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #4ecdc4;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1em;
+            opacity: 0.9;
+        }
+
+        /* CTA секция */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 50px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-title {
+            font-size: 2em;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .cta-text {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Анимации */
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2em;
+            }
+            
+            .trends-grid {
+                grid-template-columns: 1fr;
+                padding: 20px 15px;
+            }
+            
+            .trend-card {
+                padding: 20px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Заголовок -->
+        <div class="header">
+            <h1 class="main-title">🚀 ТРЕНДЫ ИНФОГРАФИКИ 2025</h1>
+            <p class="subtitle">Что будет работать на маркетплейсах в новом году</p>
+        </div>
+
+        <!-- Сетка трендов -->
+        <div class="trends-grid">
+            <!-- Тренд 1: Минимализм -->
+            <div class="trend-card">
+                <div class="trend-icon">🎯</div>
+                <h3 class="trend-title">Гипер-минимализм</h3>
+                <p class="trend-description">Чистый дизайн с максимум 2-3 цветами и большим количеством белого пространства</p>
+                <div class="trend-stats">+23% конверсия</div>
+            </div><!-- Тренд 2: Дата-визуализация -->
+            <div class="trend-card">
+                <div class="trend-icon">📊</div>
+                <h3 class="trend-title">Дата-сторителлинг</h3>
+                <p class="trend-description">Превращение сухих характеристик в визуальные истории и диаграммы</p>
+                <div class="trend-stats">+40% времени просмотра</div>
+            </div>
+
+            <!-- Тренд 3: Анимации -->
+            <div class="trend-card">
+                <div class="trend-icon">🎬</div>
+                <h3 class="trend-title">Микро-анимации</h3>
+                <p class="trend-description">Тонкие анимированные элементы, которые привлекают внимание, но не отвлекают</p>
+                <div class="trend-stats">Размер до 500KB</div>
+            </div>
+
+            <!-- Тренд 4: 3D -->
+            <div class="trend-card">
+                <div class="trend-icon">🔮</div>
+                <h3 class="trend-title">3D-элементы</h3>
+                <p class="trend-description">Псевдо-3D графика, изометрические иллюстрации и объемные иконки</p>
+                <div class="trend-stats">Ощущение премиальности</div>
+            </div>
+
+            <!-- Тренд 5: Неоморфизм -->
+            <div class="trend-card">
+                <div class="trend-icon">🎨</div>
+                <h3 class="trend-title">Неоморфизм 2.0</h3>
+                <p class="trend-description">Мягкие тени, выпуклые элементы, тактильность с современными акцентами</p>
+                <div class="trend-stats">Адаптация под темную тему</div>
+            </div>
+
+            <!-- Тренд 6: Градиенты -->
+            <div class="trend-card">
+                <div class="trend-icon">🌈</div>
+                <h3 class="trend-title">Новые градиенты</h3>
+                <p class="trend-description">Mesh-градиенты, голографические эффекты и металлические оттенки</p>
+                <div class="trend-stats">Ассоциация с инновациями</div>
+            </div>
+
+            <!-- Тренд 7: Интерактивность -->
+            <div class="trend-card">
+                <div class="trend-icon">🔄</div>
+                <h3 class="trend-title">Интерактивные элементы</h3>
+                <p class="trend-description">Элементы, реагирующие на действия пользователя: ховер, слайдеры, переключатели</p>
+                <div class="trend-stats">Должно работать без JS</div>
+            </div>
+
+            <!-- Тренд 8: Умный максимализм -->
+            <div class="trend-card">
+                <div class="trend-icon">🎪</div>
+                <h3 class="trend-title">Умный максимализм</h3>
+                <p class="trend-description">Простая композиция с детализированными элементами. Баланс сложности и простоты</p>
+                <div class="trend-stats">70% простоты + 30% сложности</div>
+            </div>
+
+            <!-- Тренд 9: Эко-дизайн -->
+            <div class="trend-card">
+                <div class="trend-icon">🌍</div>
+                <h3 class="trend-title">Эко-эстетика</h3>
+                <p class="trend-description">Натуральные цвета, органические формы и элементы экологичности</p>
+                <div class="trend-stats">+156% в эко-сегменте</div>
+            </div>
+        </div>
+
+        <!-- Статистика -->
+        <div class="stats-section">
+            <h2 style="margin-bottom: 40px; font-size: 2em;">Ключевые цифры 2025</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">35-50%</span>
+                    <div class="stat-label">Рост конверсии при внедрении трендов</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">9</span>
+                    <div class="stat-label">Актуальных трендов</div>
+                </div>
+                <div class="stat-item"><span class="stat-number">3-4</span>
+                    <div class="stat-label">Оптимальное количество трендов одновременно</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">500KB</span>
+                    <div class="stat-label">Максимальный размер анимации</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="cta-section">
+            <h2 class="cta-title">Готовы внедрить тренды в свою инфографику?</h2>
+            <p class="cta-text">Подпишитесь на мой канал для получения актуальных кейсов, разборов и лайфхаков</p>
+            <a href="https://t.me/Maksuhadesign" class="cta-button" target="_blank">@Maksuhadesign</a>
+        </div>
+    </div>
+
+    <script>
+        // Добавляем интерактивность
+        document.querySelectorAll('.trend-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Анимация появления карточек при скролле
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.trend-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(50px)';
+            card.style.transition = opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s;
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
